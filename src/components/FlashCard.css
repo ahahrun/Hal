@@ -1,0 +1,448 @@
+/* ── Fonts ── */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500&display=swap");
+
+/* ── Color tokens ── */
+:root {
+  --fc-text: #080406;
+  --fc-bg: #fdfafc;
+  --fc-primary: #bf417b;
+  --fc-secondary: #e39bbc;
+  --fc-accent: #da5c96;
+}
+
+/* ── Page (vertical centering) ── */
+.flashcard-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+}
+
+/* ── Wrapper ── */
+.flashcard-wrapper {
+  width: 100%;
+  max-width: 480px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* ── Title ── */
+.flashcard-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--fc-primary);
+  letter-spacing: -0.3px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* ── Progress Row ── */
+.flashcard-progress-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.flashcard-progress-bar-track {
+  flex: 1;
+  height: 12px;
+  background: #f0d9e8;
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.flashcard-progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--fc-primary), var(--fc-accent));
+  border-radius: 9999px;
+  transition: width 0.35s ease;
+}
+
+.flashcard-progress-label {
+  font-size: 12px;
+  color: var(--fc-secondary);
+  font-weight: 500;
+  min-width: 28px;
+  text-align: right;
+}
+
+/* ── Card ── */
+.flashcard-card {
+  border: 1.5px solid var(--fc-secondary);
+  border-radius: 16px;
+  background: var(--fc-bg);
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(191, 65, 123, 0.1);
+  position: relative;
+}
+
+.flashcard-card-badge {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--fc-primary);
+  background: #f5e0ee;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  letter-spacing: 0.3px;
+}
+
+.flashcard-card-body {
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 32px 40px;
+  text-align: center;
+  background: var(--fc-bg);
+}
+
+/* ── Question ── */
+.flashcard-question {
+  font-size: 22px;
+  font-weight: 700;
+  font-family: "Playfair Display", Georgia, serif;
+  color: var(--fc-text);
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* ── Answer ── */
+.flashcard-answer {
+  font-size: 15px;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  color: var(--fc-text);
+  line-height: 1.75;
+  margin: 0;
+  text-align: center;
+}
+
+/* ── Footer ── */
+.flashcard-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+  border-top: 1.5px solid var(--fc-secondary);
+  background: #faf0f6;
+}
+
+/* ── Nav Buttons ── */
+.flashcard-nav-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--fc-primary);
+  padding: 4px 0;
+  font-weight: 500;
+  transition:
+    color 0.15s,
+    opacity 0.15s;
+}
+
+.flashcard-nav-btn:hover:not(:disabled) {
+  color: var(--fc-accent);
+}
+
+.flashcard-nav-btn:disabled {
+  color: var(--fc-secondary);
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* ── Toggle Button ── */
+.flashcard-toggle-btn {
+  background: var(--fc-primary);
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: #fdfafc;
+  font-weight: 600;
+  padding: 8px 20px;
+  border-radius: 9999px;
+  transition:
+    background 0.15s,
+    transform 0.1s;
+  letter-spacing: 0.2px;
+}
+
+.flashcard-toggle-btn:hover {
+  background: var(--fc-accent);
+  transform: scale(1.03);
+}
+
+.flashcard-toggle-btn:active {
+  transform: scale(0.98);
+}
+
+/* ── Completion Screen ── */
+.flashcard-complete {
+  border: 1.5px solid var(--fc-secondary);
+  border-radius: 16px;
+  background: var(--fc-bg);
+  box-shadow: 0 4px 24px rgba(191, 65, 123, 0.1);
+  padding: 56px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+}
+
+.flashcard-complete-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--fc-primary), var(--fc-accent));
+  color: #fdfafc;
+  font-size: 28px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.flashcard-complete-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--fc-primary);
+  margin: 0;
+}
+
+.flashcard-complete-sub {
+  font-size: 15px;
+  color: var(--fc-text);
+  opacity: 0.7;
+  margin: 0;
+}
+
+.flashcard-restart-btn {
+  margin-top: 8px;
+  background: var(--fc-primary);
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  color: #fdfafc;
+  font-weight: 600;
+  padding: 12px 32px;
+  border-radius: 9999px;
+  transition:
+    background 0.15s,
+    transform 0.1s;
+  letter-spacing: 0.2px;
+}
+
+.flashcard-restart-btn:hover {
+  background: var(--fc-accent);
+  transform: scale(1.03);
+}
+
+.flashcard-restart-btn:active {
+  transform: scale(0.98);
+}
+
+/* ── Top bar (title + shuffle + edit) ── */
+.fc-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.fc-action-btn {
+  font-size: 13px;
+  font-weight: 600;
+  font-family: "DM Sans", sans-serif;
+  color: var(--fc-primary);
+  background: #f5e0ee;
+  border: 1.5px solid var(--fc-secondary);
+  border-radius: 9999px;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    color 0.15s,
+    transform 0.1s;
+  white-space: nowrap;
+}
+
+.fc-action-btn:hover {
+  background: var(--fc-secondary);
+  color: #fdfafc;
+}
+
+.fc-action-btn--active {
+  background: var(--fc-primary);
+  color: #fdfafc;
+  border-color: var(--fc-primary);
+}
+
+.fc-action-btn--active:hover {
+  background: var(--fc-accent);
+  border-color: var(--fc-accent);
+}
+
+/* ── Manager ── */
+.fc-manager {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.fc-manager-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ── Form ── */
+.fc-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: var(--fc-bg);
+  border: 1.5px solid var(--fc-secondary);
+  border-radius: 14px;
+  padding: 18px 20px;
+  box-shadow: 0 2px 12px rgba(191, 65, 123, 0.07);
+}
+
+.fc-textarea {
+  width: 100%;
+  font-size: 14px;
+  font-family: "DM Sans", sans-serif;
+  color: var(--fc-text);
+  background: #faf0f6;
+  border: 1.5px solid #f0d9e8;
+  border-radius: 10px;
+  padding: 10px 14px;
+  resize: none;
+  outline: none;
+  transition: border-color 0.15s;
+  line-height: 1.5;
+}
+
+.fc-textarea:focus {
+  border-color: var(--fc-secondary);
+}
+
+.fc-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  align-items: center;
+}
+
+.fc-btn-ghost {
+  background: none;
+  border: 1.5px solid var(--fc-secondary);
+  border-radius: 9999px;
+  color: var(--fc-primary);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 7px 18px;
+  cursor: pointer;
+  transition: background 0.15s;
+  font-family: "DM Sans", sans-serif;
+}
+
+.fc-btn-ghost:hover {
+  background: #f5e0ee;
+}
+
+/* ── Card list ── */
+.fc-card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 380px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.fc-card-row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: var(--fc-bg);
+  border: 1.5px solid #f0d9e8;
+  border-radius: 12px;
+  padding: 12px 14px;
+  transition: border-color 0.15s;
+}
+
+.fc-card-row--active {
+  border-color: var(--fc-secondary);
+  background: #fdf5fa;
+}
+
+.fc-card-row-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.fc-card-row-q {
+  font-size: 13px;
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  color: var(--fc-text);
+  margin: 0 0 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fc-card-row-a {
+  font-size: 12px;
+  font-family: "DM Sans", sans-serif;
+  color: var(--fc-secondary);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fc-card-row-actions {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.fc-icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  color: var(--fc-primary);
+  padding: 4px 6px;
+  border-radius: 6px;
+  transition: background 0.15s;
+  line-height: 1;
+}
+
+.fc-icon-btn:hover {
+  background: #f5e0ee;
+}
+
+.fc-icon-btn--danger {
+  color: #c0392b;
+}
+
+.fc-icon-btn--danger:hover {
+  background: #fdecea;
+}
+
+/* ── Reset button ── */
+.fc-reset-btn {
+  align-self: flex-start;
+  font-size: 12px;
+  color: #9b6b8a;
+  border-color: #e8d0e0;
+  padding: 5px 14px;
+}

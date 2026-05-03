@@ -1,0 +1,15 @@
+.cards {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #da5c96;
+  border-width: 1px;
+  border-radius: 15px;
+  background-color: #fdfafc;
+}
+.cards h1 {
+  font-size: 50px;
+  font-weight: 500;
+  font-family: "Times New Roman", Times, serif;
+}

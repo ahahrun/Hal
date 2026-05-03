@@ -1,0 +1,17 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #ffffff;
+  color: #111;
+}
+
+.app-root {
+  min-height: 100vh;
+  padding: 0 16px;
+}
