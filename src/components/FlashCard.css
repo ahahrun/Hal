@@ -446,3 +446,8 @@
   border-color: #e8d0e0;
   padding: 5px 14px;
 }
+
+/* ── Empty state gap ── */
+.flashcard-complete .fc-btn-ghost {
+  margin-top: 4px;
+}

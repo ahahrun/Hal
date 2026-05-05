@@ -10,7 +10,6 @@ function loadCards(): FlashCardType[] {
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved) return JSON.parse(saved) as FlashCardType[];
   } catch (_err) {
-    // fall through to default
     console.log(_err);
   }
   return defaultCards;
@@ -212,6 +211,48 @@ export default function FlashCard() {
             <p className="flashcard-complete-sub">You reviewed all {total} cards.</p>
             <button className="flashcard-restart-btn" onClick={handleRestart}>
               Start Over
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // ── Empty state ───────────────────────────────────────────
+  if (deck.length === 0) {
+    return (
+      <div className="flashcard-page">
+        <div className="flashcard-wrapper">
+          <div className="fc-topbar">
+            <div />
+            <h2 className="flashcard-title" style={{ marginBottom: 0 }}>
+              Flash Cards
+            </h2>
+            <button
+              className="fc-action-btn"
+              onClick={() => {
+                setShowManager(true);
+                openAdd();
+              }}
+            >
+              ✎ Edit
+            </button>
+          </div>
+          <div className="flashcard-complete">
+            <div className="flashcard-complete-icon">📭</div>
+            <h2 className="flashcard-complete-title">No cards yet</h2>
+            <p className="flashcard-complete-sub">Add some cards to get started.</p>
+            <button
+              className="flashcard-restart-btn"
+              onClick={() => {
+                setShowManager(true);
+                openAdd();
+              }}
+            >
+              + Add Cards
+            </button>
+            <button className="fc-btn-ghost" onClick={handleResetToDefault}>
+              Reset to defaults
             </button>
           </div>
         </div>
